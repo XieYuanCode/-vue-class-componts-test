@@ -16,7 +16,7 @@ export default class Hello extends BasicPage<HelloDataModel> {
   // data: 必须有初始值才能生成代理对象，而且不能是undefined，未定义的话vue无法检测到
 
   // @Data(data) null
-  @Data() localDate: number = 1
+  @Data() localDate: number = 123
   @Data() localText: string = "123"
 
   // ctor: 必须在构造函数中初始化dm，否则vue无法生成代理对象
