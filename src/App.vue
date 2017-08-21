@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <component ref="page"
-               :is="currentPage" :title="'props data TITLE'"></component>
+               :is="currentPage" :title="'props data title'"></component>
   </div>
 </template>
 
