@@ -12,9 +12,11 @@ export function Data(key) {
         console.log("key: ", key);
         console.log("componentOptions: ", componentOptions);
         console.log("K: ", K);
-        componentOptions.data = function () {
-            return key;
-        };
+        if (key) {
+            componentOptions.data = function () {
+                return key;
+            };
+        }
     });
 }
 export { Component, Vue };

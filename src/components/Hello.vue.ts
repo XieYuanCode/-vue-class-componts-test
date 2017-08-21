@@ -4,15 +4,6 @@ import BasicPage from '../core/basic-page'
 import HelloDataModel from './Hello.vue.dm'
 import IUserService from '../services/i-user-service'
 
-interface dataRules {
-  localDate: number
-  localText: string
-}
-
-let data: dataRules = {
-  localDate: 1222223,
-  localText: "default value"
-}
 @Component({ name: 'hello' })
 export default class Hello extends BasicPage<HelloDataModel> {
 
@@ -24,9 +15,9 @@ export default class Hello extends BasicPage<HelloDataModel> {
 
   // data: 必须有初始值才能生成代理对象，而且不能是undefined，未定义的话vue无法检测到
 
-  @Data(data) null
-  // @Data({ default: 'default localDate' }) localDate: number
-  // @Data({ default: 'default localText' }) localText: string
+  // @Data(data) null
+  @Data() localDate: number = 1
+  @Data() localText: string = "123"
 
   // ctor: 必须在构造函数中初始化dm，否则vue无法生成代理对象
   constructor() {
@@ -37,7 +28,7 @@ export default class Hello extends BasicPage<HelloDataModel> {
   // computed data
   get formattedDate() {
     // return this.localDate
-    return this["localDate"] + "this is compute value"
+    return this["localDate"] + "+ this is compute value"
   }
 
   get formattedText() {
