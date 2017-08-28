@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
+import { Data } from '../utils/decorator'
 
 export default abstract class BasicPage<TDataModel> extends Vue {
-  dm: TDataModel
+  @Data() dm: TDataModel
 
   /**
    * create instance of BasicPage
