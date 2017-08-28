@@ -1,5 +1,5 @@
 import { Component, Prop, Inject } from 'vue-property-decorator'
-import { Data } from '../utils/decorator.js'
+import { Data, FromDm } from 'aui-vue-decorator'
 import BasicPage from '../core/basic-page'
 import HelloDataModel from './Hello.vue.dm'
 import IUserService from '../services/i-user-service'
@@ -15,9 +15,8 @@ export default class Hello extends BasicPage<HelloDataModel> {
 
   // data: 必须有初始值才能生成代理对象，而且不能是undefined，未定义的话vue无法检测到
 
-  // @Data(data) null
-  @Data() localDate: number = 123
-  @Data() localText: string = "123"
+  @Data() localText: number = 123
+  @Data() localDate: string = "123"
 
   // ctor: 必须在构造函数中初始化dm，否则vue无法生成代理对象
   constructor() {
@@ -26,8 +25,10 @@ export default class Hello extends BasicPage<HelloDataModel> {
   }
 
   // computed data
+  // get localText() {
+  //   return this.dm.Amount
+  // }
   get formattedDate() {
-    // return this.localDate
     return this["localDate"] + "+ this is compute value"
   }
 
@@ -40,7 +41,7 @@ export default class Hello extends BasicPage<HelloDataModel> {
     super.created()
     console.log('on created in hello: ', this)
     console.log('title: ', this.title)
-    console.log('msg: ', this.msg)
+    this.dm.Amount = 10000
   }
 
   // async mounted() {
@@ -48,6 +49,9 @@ export default class Hello extends BasicPage<HelloDataModel> {
   // }
 
   // methods
+  test() {
+    console.log(this.dm.Amount)
+  }
   submit() {
     // this.localDate = new Date()
     // this.localText = new Date().toString()

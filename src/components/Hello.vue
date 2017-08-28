@@ -13,6 +13,7 @@
     <p>prop value</p>
     <h1>props title: {{ this.title }}</h1>
     <h1>props msg: {{ this.msg }}</h1><br><hr>
+    <button @click="test">test</button>
   </div>
 </template>
 
