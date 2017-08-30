@@ -1,5 +1,5 @@
 import { Component, Prop, Inject } from 'vue-property-decorator'
-import { Data, FromDm } from 'aui-vue-decorator'
+import { Data, FromDm } from 'ahp-vue-decorator'
 import BasicPage from '../core/basic-page'
 import HelloDataModel from './Hello.vue.dm'
 import IUserService from '../services/i-user-service'
